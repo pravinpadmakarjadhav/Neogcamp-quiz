@@ -1,42 +1,50 @@
-let readlineSync = require("readline-sync");
+const readlineSync = require("readline-sync");
+const chalk = require("chalk");
+const score = 0;
 
-let score = 0;
 
-let highScores = [{
-        name: "Pravin",
+const highScores = [{
+        name: "Tanay",
         score: 3,
     },
 
     {
-        name: "Akash",
+        name: "pravin",
         score: 2,
     },
 ]
 
 
-let questions = [{
-        question: "Who is the ceo of neogcamp?",
-        answer: "tanvi priya"
+const questions = [{
+        question: "What was the first job he had?",
+        answer: "no"
+
     }, {
-        question: "When is the neogcamp founded?",
-        answer: "2020"
+        question: "Where is tanay pratap's hometown?",
+        answer: " Bokaro"
     },
     {
-        question: "what is hometown of tanay pratap?",
-        answer: "bokaro"
+        question: "Do you know when neogcamp is founded?",
+        answer: " 2020"
+
+
+
+    }, {
+        question: "Do you know when neogcamp is founded?",
+        answer: " 2020"
     }
 ];
 
 function welcome() {
-    let userName = readlineSync.question("What's your name? ");
+    const userName = readlineSync.question("What's your name? ");
 
-    console.log("Welcome " + userName + " let's see if you know well neogcamp & our mentor Tanay Pratap!");
+    console.log("Welcome " + userName + "let's see if you know our Mentor Tanay Pratap");
 }
 
 
 
 function play(question, answer) {
-    let userAnswer = readlineSync.question(question);
+    const userAnswer = readlineSync.question(question);
 
     if (userAnswer.toUpperCase() === answer.toUpperCase()) {
         console.log("right!");
@@ -52,8 +60,8 @@ function play(question, answer) {
 }
 
 function game() {
-    for (let i = 0; i < questions.length; i++) {
-        let currentQuestion = questions[i];
+    for (const i = 0; i < questions.length; i++) {
+        const currentQuestion = questions[i];
         play(currentQuestion.question, currentQuestion.answer)
     }
 }
@@ -61,7 +69,7 @@ function game() {
 function showScores() {
     console.log("YAY! You SCORED: ", score);
 
-    console.log("Check out the high scores.");
+    console.log("Check out the high scores, if you should be there ping me and I'll update it");
 
     highScores.map(score => console.log(score.name, " : ", score.score))
 }
